@@ -150,16 +150,29 @@
 # cbk = get_callback(random_function, 1,2,3)
 # print cbk()
 
-#Serializing 
-import json
-#help(json.load)
-my_dict = dict(key=10)
-serialized = json.dumps(my_dict)
-print serialized
+# #Serializing 
+# import json
+# #help(json.load)
+# my_dict = dict(key=10)
+# serialized = json.dumps(my_dict)
+# print serialized
 
-received = json.loads(serialized)
-print received
+# received = json.loads(serialized)
+# print received
 
-my_string = "%(id)s-%(nume)s" % dict(id=0, nume="annon")
-my_string = "%s-%s" % (0, "annon")
-print my_string
+# my_string = "%(id)s-%(nume)s" % dict(id=0, nume="annon")
+# #same
+# my_string = "%s-%s" % (0, "annon")
+# print my_string
+
+import logging
+logger = logging.getLogger('mylogger')
+
+fmt = logging.Formatter(fmt = '%(asctime)s: %(levelName)s - %(message)s')
+handler = logging.StreamHandler()
+logger.addHandler(handler)
+
+def test():
+    logger.info("My method was called")
+
+test()
